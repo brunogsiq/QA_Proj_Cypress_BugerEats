@@ -1,1 +1,1 @@
-# QA_Proj_Cypress_BugerEats
+# QA_Learn_Cypress_Discovery.
