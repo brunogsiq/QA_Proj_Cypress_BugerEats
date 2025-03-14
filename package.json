@@ -16,6 +16,7 @@
     "gerador-validador-cpf": "^5.0.2"
   },
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "qa_cademy_cypressdiscovery": "file:"
   }
 }

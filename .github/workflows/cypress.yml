@@ -1,0 +1,46 @@
+name: Teste - Github Actions com Cypress
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  e2e-tests:
+    timeout-minutes: 1260
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/base:14.17.0
+    
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Rodar testes Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          spec: |
+            cypress/e2e/scenes/home.cy.js,
+            cypress/e2e/scenes/signup.cy.js,
+            cypress/e2e/scenes/validar_home_page.cy.js,
+            cypress/e2e/scenes/validar_preenchimento_de_cadastro.cy.js
+
+      - name: Publicar Relatório de Testes (Vídeos)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos/
+          retention-days: 30
