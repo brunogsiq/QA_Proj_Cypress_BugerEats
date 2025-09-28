@@ -1,12 +1,16 @@
-export function visitarHome()
+/// <reference types="cypress" /> 
+
+//import { telaHome } from "../../pageObjects/01_telaHome/telaHome";
+
+Cypress.Commands.add('visitarHome', () =>
 {
     cy.visit("https://buger-eats.vercel.app/");
 
     cy.get("main > h1")
         .should("be.visible")
-}
+});
 
-export function visitarCadastre_se()
+Cypress.Commands.add('visitarCadastre_se', () =>
 {
     visitarHome();
 
@@ -15,4 +19,4 @@ export function visitarCadastre_se()
 
     cy.get("form > h1")
         .should("be.visible");
-}
+});

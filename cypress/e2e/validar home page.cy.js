@@ -1,13 +1,15 @@
-import { visitarHome } from "../functions/visitar";
+let contexto = 1;
+let cenario = 1;
+let teste = 1;
 
-// Swit de teste para home page
 describe("01 - Home Page", () => 
 {
     //antes de cada contexto ou teste...
     beforeEach(() =>
     {
-        visitarHome();
+        cy.visitarHome();
     });
+
     //contexto de teste
     context("01.1 - Validações Visuais.", () =>
     {
@@ -33,6 +35,7 @@ describe("01 - Home Page", () =>
                 .should("have.css", "color", "rgb(255, 255, 255)");
         });
     });
+
     context("01.2 - Validações Funcionais.", () =>
     {
         it('01.2.1 - Validar acesso a tela de cadastro.', () =>

@@ -4,22 +4,27 @@
   "description": "Cypress Discovery - QA Cademy",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress open"
+    "test": "cypress run --reporter mochawesome",
+    "merge-reports": "mochawesome-merge --reportDir cypress/reports/mocha > cypress/reports/mochawesome-merged.json",
+    "generate-report": "marge cypress/reports/mochawesome-merged.json -f report -o cypress/reports",
+    "cy:run": "npm run test && npm run merge-reports && npm run generate-report"
   },
   "author": "Bruno G. Siqueira",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "^12.17.4",
+    "@faker-js/faker": "^10.0.0",
+    "cypress": "^15.2.0",
     "cypress-file-upload": "^5.0.8",
-    "cypress-wait-until": "^2.0.0",
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "cypress-wait-until": "^2.0.1",
     "faker": "^5.5.3",
     "gerador-validador-cpf": "^5.0.2",
-    "mochawesome": "^7.1.3",
+    "mochawesome": "^7.1.4",
     "mochawesome-merge": "^5.0.0",
-    "mochawesome-report-generator": "^6.2.0"
+    "mochawesome-report-generator": "^6.3.0"
   },
   "dependencies": {
-    "express": "^4.18.1",
+    "express": "4.18.1",
     "qa_cademy_cypressdiscovery": "file:"
   },
   "keywords": []

@@ -1,4 +1,4 @@
-import { visitarCadastre_se } from "../functions/visitar";
+import { visitarCadastre_se } from "./functions/visitar";
 
 var cpf = require("gerador-validador-cpf");
 
