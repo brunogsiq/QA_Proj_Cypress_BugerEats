@@ -5,4 +5,4 @@
 
 # Atenção 
 
-    VERIFICAR PIPELINE
+    VERIFICAR PIPELINE.
