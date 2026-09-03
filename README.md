@@ -2,3 +2,7 @@
 
 - Curso Cypress Discovery
     1. Projeto BugerEats
+
+# Atenção 
+
+    VERIFICAR PIPELINE
